@@ -18,7 +18,7 @@ public class ViewModel extends AndroidViewModel {
         repository = new UpkeepsRepository(application);
         allFleets = repository.getAllFleets();
     }
-    LiveData<List<Fleet>> getAllFleets(){
+    public LiveData<List<Fleet>> getAllFleets(){
         return allFleets;
     }
     public void insert(Fleet fleet){

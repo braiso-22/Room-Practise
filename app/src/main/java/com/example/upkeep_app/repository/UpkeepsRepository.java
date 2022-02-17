@@ -32,14 +32,14 @@ public class UpkeepsRepository {
 
     public UpkeepsRepository(Application application) {
         UpkeepsRoomDatabase db = UpkeepsRoomDatabase.getDatabase(application);
-        fleetDao = db.fleetDao;
-        boatDao = db.boatDao;
-        serviceDao = db.serviceDao;
-        componentDao = db.componentDao;
-        upkeepDao = db.upkeepDao;
-        taskDao = db.taskDao;
-        operatorDao = db.operatorDao;
-        storeDao = db.storeDao;
+        fleetDao = db.fleetDao();
+        boatDao = db.boatDao();
+        serviceDao = db.serviceDao();
+        componentDao = db.componentDao();
+        upkeepDao = db.upkeepDao();
+        taskDao = db.taskDao();
+        operatorDao = db.operatorDao();
+        storeDao = db.storeDao();
         allFleets = fleetDao.getAll();
         allBoats = boatDao.getAll();
         allServices = serviceDao.getAll();

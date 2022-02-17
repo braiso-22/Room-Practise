@@ -1,6 +1,7 @@
 package com.example.upkeep_app.model.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -10,7 +11,7 @@ import com.example.upkeep_app.model.vo.Task;
 import com.example.upkeep_app.model.vo.relations.TaskWithStores;
 
 import java.util.List;
-
+@Dao
 public interface TaskDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Task task);
