@@ -13,15 +13,18 @@ import java.util.List;
 public class ViewModel extends AndroidViewModel {
     private UpkeepsRepository repository;
     private final LiveData<List<Fleet>> allFleets;
-    public ViewModel(Application application){
+
+    public ViewModel(Application application) {
         super(application);
         repository = new UpkeepsRepository(application);
         allFleets = repository.getAllFleets();
     }
-    public LiveData<List<Fleet>> getAllFleets(){
+
+    public LiveData<List<Fleet>> getAllFleets() {
         return allFleets;
     }
-    public void insert(Fleet fleet){
+
+    public void insert(Fleet fleet) {
         repository.insert(fleet);
     }
 }

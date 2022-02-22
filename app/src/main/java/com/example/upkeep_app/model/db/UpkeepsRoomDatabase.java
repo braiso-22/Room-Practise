@@ -47,6 +47,7 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             UpkeepsRoomDatabase.class, "upkeeps_database")
+                            .addCallback(roomDatabaseCallback)
                             .build();
                 }
             }
@@ -64,9 +65,13 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
-                FleetDao dao = INSTANCE.fleetDao();
-                dao.deleteAll();
-                //TODO resto de Instancias
+                FleetDao fleetDao = INSTANCE.fleetDao();
+                fleetDao.deleteAll();
+                BoatDao boatDao = INSTANCE.boatDao();
+                boatDao.deleteAll();
+
+                Fleet fleet = new Fleet("Flota Carlos");
+                fleetDao.insert(fleet);
                 /*
                 Word word = new Word("Hello");
                 dao.insert(word);

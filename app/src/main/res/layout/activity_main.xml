@@ -27,4 +27,14 @@
         android:contentDescription="@string/add_word"
         android:src="@drawable/ic_baseline_add_24"/>
 
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="265dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

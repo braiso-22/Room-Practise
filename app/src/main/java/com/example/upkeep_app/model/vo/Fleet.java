@@ -28,4 +28,11 @@ public class Fleet {
         return this.name;
     }
 
+    @Override
+    public String toString() {
+        return "Fleet{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

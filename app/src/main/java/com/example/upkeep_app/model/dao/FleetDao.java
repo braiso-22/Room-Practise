@@ -22,8 +22,4 @@ public interface FleetDao {
 
     @Query("SELECT * FROM fleet")
     LiveData<List<Fleet>> getAll();
-
-    @Transaction
-    @Query("SELECT * FROM fleet")
-    List<FleetWithBoats> getFleetWithBoats();
 }

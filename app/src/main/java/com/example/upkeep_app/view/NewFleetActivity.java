@@ -12,7 +12,7 @@ import com.example.upkeep_app.R;
 
 public class NewFleetActivity extends AppCompatActivity {
 
-    public static final String EXTRA_REPLY = "com.example.boatupkeep.REPLY";
+    public static final String EXTRA_REPLY = "com.example.android.wordlistsql.REPLY";
     private EditText editFleetView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

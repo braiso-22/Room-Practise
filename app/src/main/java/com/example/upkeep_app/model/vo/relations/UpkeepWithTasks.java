@@ -5,12 +5,13 @@ import androidx.room.Relation;
 
 import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.model.vo.Task;
+import com.example.upkeep_app.model.vo.Upkeep;
 
 import java.util.List;
 
 public class UpkeepWithTasks {
     @Embedded
-    public Service service;
+    public Upkeep upkeep;
     @Relation(
             parentColumn = "id",
             entityColumn = "id"
