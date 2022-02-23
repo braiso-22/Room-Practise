@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.upkeep_app.model.vo.Boat;
 import com.example.upkeep_app.model.vo.Fleet;
+import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.view.FleetListAdapter;
 import com.example.upkeep_app.view.NewFleetActivity;
 import com.example.upkeep_app.viewmodel.ViewModel;
@@ -74,7 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 tVBoats.setText(tVBoats.getText() + boat.toString());
             }
         });
-
+        viewModel.getAllServices().observe(this, services -> {
+            tVServices.setText("Services:\n");
+            for (Service service : services) {
+                tVServices.setText(tVServices.getText() + service.toString());
+            }
+        });
 
         /*viewModel.getAllFleets().observe(this, fleets -> {
             // Update the cached copy of the words in the adapter.
