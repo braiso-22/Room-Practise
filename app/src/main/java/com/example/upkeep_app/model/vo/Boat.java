@@ -43,4 +43,14 @@ public class Boat {
     public String getRegistration() {
         return registration;
     }
+
+    @Override
+    public String toString() {
+        return "Boat{" +
+                "id=" + id +
+                ", code=" + code +
+                ", name='" + name + '\'' +
+                ", registration='" + registration + '\'' +
+                '}'+"\n";
+    }
 }

@@ -10,12 +10,11 @@
         android:id="@+id/recyclerview"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/recyclerview_item"
         android:padding="@dimen/big_padding"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/recyclerview_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -27,14 +26,77 @@
         android:contentDescription="@string/add_word"
         android:src="@drawable/ic_baseline_add_24"/>
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <TextView
+        android:id="@+id/fleetTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        tools:layout_editor_absoluteX="59dp"
-        tools:layout_editor_absoluteY="265dp" />
+        android:text="Fleets:  \n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/boatTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Boats:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fleetTV" />
+
+    <TextView
+        android:id="@+id/serviceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Services:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boatTV" />
+
+    <TextView
+        android:id="@+id/upkeepTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="upkeeps:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/componentTV" />
+
+    <TextView
+        android:id="@+id/taskTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tasks:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upkeepTV" />
+
+    <TextView
+        android:id="@+id/operatorTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Operators:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskTV" />
+
+    <TextView
+        android:id="@+id/componentTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Components:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/serviceTV" />
+
+    <TextView
+        android:id="@+id/storeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stores:\n"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/operatorTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
