@@ -59,4 +59,17 @@ public class Component {
     public String getObservations() {
         return observations;
     }
+
+    @Override
+    public String toString() {
+        return "Component{" +
+                "id=" + id +
+                ", code=" + code +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", serialNumber='" + serialNumber + '\'' +
+                ", observations='" + observations + '\'' +
+                '}' + "\n";
+    }
 }

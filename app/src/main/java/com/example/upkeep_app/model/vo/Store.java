@@ -77,4 +77,19 @@ public class Store {
     public int getMinStock() {
         return minStock;
     }
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "id=" + id +
+                ", code=" + code +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", serialNumber='" + serialNumber + '\'' +
+                ", observations='" + observations + '\'' +
+                ", numStock=" + numStock +
+                ", minStock=" + minStock +
+                '}' + "\n";
+    }
 }

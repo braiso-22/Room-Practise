@@ -37,4 +37,13 @@ public class Upkeep {
     public String getHour() {
         return hour;
     }
+
+    @Override
+    public String toString() {
+        return "Upkeep{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", hour='" + hour + '\'' +
+                '}' + "\n";
+    }
 }

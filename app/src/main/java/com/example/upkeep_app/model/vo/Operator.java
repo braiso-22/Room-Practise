@@ -55,4 +55,16 @@ public class Operator {
     public String getEmail() {
         return email;
     }
+
+    @Override
+    public String toString() {
+        return "Operator{" +
+                "id=" + id +
+                ", code=" + code +
+                ", identification='" + identification + '\'' +
+                ", name='" + name + '\'' +
+                ", surnames='" + surnames + '\'' +
+                ", email='" + email + '\'' +
+                '}' + "\n";
+    }
 }

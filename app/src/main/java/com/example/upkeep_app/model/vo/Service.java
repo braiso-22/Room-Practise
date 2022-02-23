@@ -35,4 +35,13 @@ public class Service {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id=" + id +
+                ", code=" + code +
+                ", name='" + name + '\'' +
+                '}' + "\n";
+    }
 }
