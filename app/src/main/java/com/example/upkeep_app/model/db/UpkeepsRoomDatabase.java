@@ -72,11 +72,8 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
 
                 Fleet fleet = new Fleet("Flota Carlos");
                 fleetDao.insert(fleet);
-                /*
-                Word word = new Word("Hello");
-                dao.insert(word);
-                word = new Word("World");
-                dao.insert(word);*/
+                Boat boat = new Boat(1, "Santa catalina", "123");
+                boatDao.insert(boat);
             });
         }
     };
