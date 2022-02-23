@@ -63,17 +63,27 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
             // If you want to keep data through app restarts,
             // comment out the following block
             databaseWriteExecutor.execute(() -> {
-                // Populate the database in the background.
-                // If you want to start with more words, just add them.
+                // Populate the database in the background
+
                 FleetDao fleetDao = INSTANCE.fleetDao();
                 fleetDao.deleteAll();
-                BoatDao boatDao = INSTANCE.boatDao();
-                boatDao.deleteAll();
 
                 Fleet fleet = new Fleet("Flota Carlos");
                 fleetDao.insert(fleet);
+
+                BoatDao boatDao = INSTANCE.boatDao();
+                boatDao.deleteAll();
+
                 Boat boat = new Boat(1, "Santa catalina", "123");
                 boatDao.insert(boat);
+
+                ServiceDao serviceDao = INSTANCE.serviceDao();
+                serviceDao.deleteAll();
+
+                Service service = new Service(123, "motores");
+                serviceDao.insert(service);
+
+
             });
         }
     };
