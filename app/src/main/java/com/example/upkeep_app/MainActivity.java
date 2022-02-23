@@ -19,7 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     private ViewModel viewModel;
-    private TextView tVFleets, tVBoats;
+    private TextView tVFleets, tVBoats, tVServices, tVComponents, tVUpkeeps, tVTasks, tVOperators, tVStores;
     FloatingActionButton fab;
     public static final int NEW_FLEET_ACTIVITY_REQUEST_CODE = 1;
 
@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
     public void initViewComponents() {
         tVFleets = findViewById(R.id.fleetTV);
         tVBoats = findViewById(R.id.boatTV);
+        tVServices = findViewById(R.id.serviceTV);
+        tVComponents = findViewById(R.id.componentTV);
+        tVUpkeeps = findViewById(R.id.upkeepTV);
+        tVTasks = findViewById(R.id.taskTV);
+        tVOperators = findViewById(R.id.operatorTV);
+        tVStores = findViewById(R.id.storeTV);
+
         fab = findViewById(R.id.fab);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
