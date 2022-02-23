@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.upkeep_app.model.vo.Boat;
 import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.view.FleetListAdapter;
 import com.example.upkeep_app.view.NewFleetActivity;
@@ -18,39 +19,60 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     private ViewModel viewModel;
-    private EditText eT;
+    private TextView tVFleets, tVBoats;
+    FloatingActionButton fab;
     public static final int NEW_FLEET_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        eT = findViewById(R.id.editTextTextPersonName);
+
+        initViewComponents();
+
+        viewModel = new ViewModelProvider(this).get(ViewModel.class);
+
+        viewModelObservers();
+
+        // Button for changing activity
+
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, NewFleetActivity.class);
+            startActivityForResult(intent, NEW_FLEET_ACTIVITY_REQUEST_CODE);
+        });
+    }
+
+    public void initViewComponents() {
+        tVFleets = findViewById(R.id.fleetTV);
+        tVBoats = findViewById(R.id.boatTV);
+        fab = findViewById(R.id.fab);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final FleetListAdapter adapter = new FleetListAdapter(new FleetListAdapter.FleetDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
 
-        viewModel = new ViewModelProvider(this).get(ViewModel.class);
+    public void viewModelObservers() {
         viewModel.getAllFleets().observe(this, fleets -> {
-            for (Fleet a:fleets) {
-                eT.setText(eT.getText()+a.toString());
+            tVFleets.setText("Fleets:\n");
+            for (Fleet fleet : fleets) {
+                tVFleets.setText(tVFleets.getText() + fleet.toString());
             }
         });
+
+        viewModel.getAllBoats().observe(this, boats -> {
+            tVBoats.setText("Boats:\n");
+            for (Boat boat : boats) {
+                tVBoats.setText(tVBoats.getText() + boat.toString());
+            }
+        });
+
+
         /*viewModel.getAllFleets().observe(this, fleets -> {
             // Update the cached copy of the words in the adapter.
             adapter.submitList(fleets);
         });*/
-        viewModel.getAllFleets().observe(this, fleets -> {
-
-        });
-        // Button for changing activity
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, NewFleetActivity.class);
-            startActivityForResult(intent, NEW_FLEET_ACTIVITY_REQUEST_CODE);
-        });
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
