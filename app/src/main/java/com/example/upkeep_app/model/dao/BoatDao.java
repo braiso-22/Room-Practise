@@ -22,8 +22,4 @@ public interface BoatDao {
 
     @Query("SELECT * FROM boat")
     LiveData<List<Boat>> getAll();
-
-    @Transaction
-    @Query("SELECT * FROM boat")
-    List<BoatWithServices> getBoatWithServices();
 }
