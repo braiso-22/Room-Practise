@@ -11,6 +11,7 @@ import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.model.vo.relations.ServiceWithComponents;
 
 import java.util.List;
+
 @Dao
 public interface ServiceDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -21,8 +22,4 @@ public interface ServiceDao {
 
     @Query("SELECT * FROM service")
     LiveData<List<Service>> getAll();
-
-    @Transaction
-    @Query("SELECT * FROM service")
-    List<ServiceWithComponents> getServiceWithComponents();
 }
