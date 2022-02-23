@@ -33,6 +33,6 @@ public class Fleet {
         return "Fleet{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                '}';
+                '}'+"\n";
     }
 }
