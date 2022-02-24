@@ -65,24 +65,28 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background
 
+                //Fleet
                 FleetDao fleetDao = INSTANCE.fleetDao();
                 fleetDao.deleteAll();
 
                 Fleet fleet = new Fleet("Flota Carlos");
                 fleetDao.insert(fleet);
 
+                // Boat
                 BoatDao boatDao = INSTANCE.boatDao();
                 boatDao.deleteAll();
 
                 Boat boat = new Boat(1, "Santa catalina", "123");
                 boatDao.insert(boat);
 
+                // Service
                 ServiceDao serviceDao = INSTANCE.serviceDao();
                 serviceDao.deleteAll();
 
                 Service service = new Service(123, "motores");
                 serviceDao.insert(service);
 
+                // Component
                 ComponentDao componentDao = INSTANCE.componentDao();
                 componentDao.deleteAll();
 
@@ -90,7 +94,34 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
                         "14j", "1324", "buen estado");
                 componentDao.insert(component);
 
+                // Upkeep
+                UpkeepDao upkeepDao = INSTANCE.upkeepDao();
+                upkeepDao.deleteAll();
 
+                Upkeep upkeep = new Upkeep("2022-02-24", "20:31");
+                upkeepDao.insert(upkeep);
+
+                // Task
+                TaskDao taskDao = INSTANCE.taskDao();
+                taskDao.deleteAll();
+
+                Task task = new Task(20, "Cambio de gomas");
+                taskDao.insert(task);
+
+                // Operator
+                OperatorDao operatorDao = INSTANCE.operatorDao();
+                operatorDao.deleteAll();
+
+                Operator operator = new Operator(1, "54347643K", "Brais",
+                        "Fernandez", "braisfv22@gmail.com");
+                operatorDao.insert(operator);
+
+                // Store
+                StoreDao storeDao = INSTANCE.storeDao();
+                storeDao.deleteAll();
+
+                Store store = new Store(1, "tornillo", "bosch", "2N", "12", "tornillos de estrella", 20, 10);
+                storeDao.insert(store);
             });
         }
     };
