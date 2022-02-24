@@ -22,8 +22,4 @@ public interface ComponentDao {
 
     @Query("SELECT * FROM component")
     LiveData<List<Component>> getAll();
-
-    @Transaction
-    @Query("SELECT * FROM component")
-    List<ComponentWithUpkeeps> getComponentWithUpkeeps();
 }
