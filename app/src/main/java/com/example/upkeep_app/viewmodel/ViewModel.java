@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.upkeep_app.model.vo.Boat;
+import com.example.upkeep_app.model.vo.Component;
 import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.repository.UpkeepsRepository;
@@ -17,7 +18,8 @@ public class ViewModel extends AndroidViewModel {
     private final LiveData<List<Fleet>> allFleets;
     private final LiveData<List<Boat>> allBoats;
     private final LiveData<List<Service>> allServices;
-    // private final LiveData<List<unique>> allunique;
+    private final LiveData<List<Component>> allComponents;
+    // private final LiveData<List<unique>> alluniques;
 
     public ViewModel(Application application) {
         super(application);
@@ -25,7 +27,8 @@ public class ViewModel extends AndroidViewModel {
         allFleets = repository.getAllFleets();
         allBoats = repository.getAllBoats();
         allServices = repository.getAllServices();
-        //allunique = repository.getAllunique();
+        allComponents = repository.getAllComponents();
+        //alluniques = repository.getAlluniques();
     }
 
     public LiveData<List<Fleet>> getAllFleets() {
@@ -49,8 +52,12 @@ public class ViewModel extends AndroidViewModel {
     }
     public void insert(Service service){repository.insert(service);}
 
+    public LiveData<List<Component>> getAllComponents(){
+        return allComponents;
+    }
+    public void insert(Component component){repository.insert(component);}
     /*
-    public LiveData<List<unique>> getAllunique(){
+    public LiveData<List<unique>> getAlluniques(){
         return allunique;
     }
     public void insert(unique unique){repository.insert(unique);}*/
