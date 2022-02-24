@@ -19,7 +19,7 @@ import com.example.upkeep_app.model.vo.Store;
 import com.example.upkeep_app.model.vo.Task;
 import com.example.upkeep_app.model.vo.Upkeep;
 import com.example.upkeep_app.view.FleetListAdapter;
-import com.example.upkeep_app.view.NewFleetActivity;
+import com.example.upkeep_app.view.InsertActivity;
 import com.example.upkeep_app.viewmodel.ViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // Button for changing activity
 
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, NewFleetActivity.class);
+            Intent intent = new Intent(MainActivity.this, InsertActivity.class);
             startActivityForResult(intent, NEW_FLEET_ACTIVITY_REQUEST_CODE);
         });
     }
@@ -135,8 +135,13 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_FLEET_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Fleet fleet = new Fleet(data.getStringExtra(NewFleetActivity.EXTRA_REPLY));
-            viewModel.insert(fleet);
+            try {
+                //Fleet fleet = data.
+                //viewModel.insert(fleet);
+                //Boat boat = new Fleet();
+            } catch (Exception e) {
+
+            }
         } else {
             Toast.makeText(
                     getApplicationContext(),
