@@ -8,7 +8,11 @@ import androidx.lifecycle.LiveData;
 import com.example.upkeep_app.model.vo.Boat;
 import com.example.upkeep_app.model.vo.Component;
 import com.example.upkeep_app.model.vo.Fleet;
+import com.example.upkeep_app.model.vo.Operator;
 import com.example.upkeep_app.model.vo.Service;
+import com.example.upkeep_app.model.vo.Store;
+import com.example.upkeep_app.model.vo.Task;
+import com.example.upkeep_app.model.vo.Upkeep;
 import com.example.upkeep_app.repository.UpkeepsRepository;
 
 import java.util.List;
@@ -19,7 +23,10 @@ public class ViewModel extends AndroidViewModel {
     private final LiveData<List<Boat>> allBoats;
     private final LiveData<List<Service>> allServices;
     private final LiveData<List<Component>> allComponents;
-    // private final LiveData<List<unique>> alluniques;
+    private final LiveData<List<Upkeep>> allUpkeeps;
+    private final LiveData<List<Task>> allTasks;
+    private final LiveData<List<Operator>> allOperators;
+    private final LiveData<List<Store>> allStores;
 
     public ViewModel(Application application) {
         super(application);
@@ -28,7 +35,10 @@ public class ViewModel extends AndroidViewModel {
         allBoats = repository.getAllBoats();
         allServices = repository.getAllServices();
         allComponents = repository.getAllComponents();
-        //alluniques = repository.getAlluniques();
+        allUpkeeps = repository.getAllUpkeeps();
+        allTasks = repository.getAllTasks();
+        allOperators = repository.getAllOperators();
+        allStores = repository.getAllStores();
     }
 
     public LiveData<List<Fleet>> getAllFleets() {
@@ -56,9 +66,26 @@ public class ViewModel extends AndroidViewModel {
         return allComponents;
     }
     public void insert(Component component){repository.insert(component);}
-    /*
-    public LiveData<List<unique>> getAlluniques(){
-        return allunique;
+
+    public LiveData<List<Upkeep>> getAllUpkeeps(){
+        return allUpkeeps;
     }
-    public void insert(unique unique){repository.insert(unique);}*/
+    public void insert(Upkeep upkeep){repository.insert(upkeep);}
+
+    public LiveData<List<Task>> getAllTasks(){
+        return allTasks;
+    }
+    public void insert(Task task){repository.insert(task);}
+
+    public LiveData<List<Operator>> getAllOperators(){
+        return allOperators;
+    }
+    public void insert(Operator operator){repository.insert(operator);}
+
+    public LiveData<List<Store>> getAllStores(){
+        return allStores;
+    }
+    public void insert(Store store){repository.insert(store);}
+
+
 }
