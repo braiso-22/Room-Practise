@@ -83,6 +83,13 @@ public abstract class UpkeepsRoomDatabase extends RoomDatabase {
                 Service service = new Service(123, "motores");
                 serviceDao.insert(service);
 
+                ComponentDao componentDao = INSTANCE.componentDao();
+                componentDao.deleteAll();
+
+                Component component = new Component(1, "motor principal", "rambeirg",
+                        "14j", "1324", "buen estado");
+                componentDao.insert(component);
+
 
             });
         }
