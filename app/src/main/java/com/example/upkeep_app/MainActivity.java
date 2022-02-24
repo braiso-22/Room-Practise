@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.upkeep_app.model.vo.Boat;
+import com.example.upkeep_app.model.vo.Component;
 import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.view.FleetListAdapter;
@@ -81,6 +82,14 @@ public class MainActivity extends AppCompatActivity {
                 tVServices.setText(tVServices.getText() + service.toString());
             }
         });
+        viewModel.getAllComponents().observe(this, components -> {
+            tVServices.setText("Componenets:\n");
+            for (Component component : components) {
+                tVServices.setText(tVServices.getText() + component.toString());
+            }
+        });
+
+
 
         /*viewModel.getAllFleets().observe(this, fleets -> {
             // Update the cached copy of the words in the adapter.
