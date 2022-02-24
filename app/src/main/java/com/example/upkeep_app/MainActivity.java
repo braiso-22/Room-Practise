@@ -13,7 +13,11 @@ import android.widget.Toast;
 import com.example.upkeep_app.model.vo.Boat;
 import com.example.upkeep_app.model.vo.Component;
 import com.example.upkeep_app.model.vo.Fleet;
+import com.example.upkeep_app.model.vo.Operator;
 import com.example.upkeep_app.model.vo.Service;
+import com.example.upkeep_app.model.vo.Store;
+import com.example.upkeep_app.model.vo.Task;
+import com.example.upkeep_app.model.vo.Upkeep;
 import com.example.upkeep_app.view.FleetListAdapter;
 import com.example.upkeep_app.view.NewFleetActivity;
 import com.example.upkeep_app.viewmodel.ViewModel;
@@ -76,16 +80,46 @@ public class MainActivity extends AppCompatActivity {
                 tVBoats.setText(tVBoats.getText() + boat.toString());
             }
         });
+
         viewModel.getAllServices().observe(this, services -> {
             tVServices.setText("Services:\n");
             for (Service service : services) {
                 tVServices.setText(tVServices.getText() + service.toString());
             }
         });
+
         viewModel.getAllComponents().observe(this, components -> {
-            tVServices.setText("Componenets:\n");
+            tVComponents.setText("Components:\n");
             for (Component component : components) {
-                tVServices.setText(tVServices.getText() + component.toString());
+                tVComponents.setText(tVComponents.getText() + component.toString());
+            }
+        });
+
+        viewModel.getAllUpkeeps().observe(this, upkeeps -> {
+            tVUpkeeps.setText("Upkeeps:\n");
+            for (Upkeep upkeep : upkeeps) {
+                tVUpkeeps.setText(tVUpkeeps.getText() + upkeep.toString());
+            }
+        });
+
+        viewModel.getAllTasks().observe(this, tasks -> {
+            tVTasks.setText("Tasks:\n");
+            for (Task task : tasks) {
+                tVTasks.setText(tVTasks.getText() + task.toString());
+            }
+        });
+
+        viewModel.getAllOperators().observe(this, operators -> {
+            tVOperators.setText("Operators:\n");
+            for (Operator operator : operators) {
+                tVOperators.setText(tVOperators.getText() + operator.toString());
+            }
+        });
+
+        viewModel.getAllStores().observe(this, stores -> {
+            tVStores.setText("Stores:\n");
+            for (Store store : stores) {
+                tVStores.setText(tVStores.getText() + store.toString());
             }
         });
 
