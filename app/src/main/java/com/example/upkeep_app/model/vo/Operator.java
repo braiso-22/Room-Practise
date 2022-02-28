@@ -3,6 +3,8 @@ package com.example.upkeep_app.model.vo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.upkeep_app.util.exceptions.FormatError;
+
 import org.jetbrains.annotations.NotNull;
 
 @Entity(tableName = "operator")
@@ -26,6 +28,18 @@ public class Operator {
         this.name = name;
         this.surnames = surnames;
         this.email = email;
+    }
+
+    public Operator(String code, String identification, String name, String surnames, String email) throws FormatError {
+        try {
+            this.code = Integer.parseInt(code);
+            this.identification = identification;
+            this.name = name;
+            this.surnames = surnames;
+            this.email = email;
+        } catch (Exception e) {
+            throw new FormatError("Operator");
+        }
     }
 
     public void setId(int id) {

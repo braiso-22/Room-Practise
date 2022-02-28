@@ -3,6 +3,8 @@ package com.example.upkeep_app.model.vo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.upkeep_app.util.exceptions.FormatError;
+
 import org.jetbrains.annotations.NotNull;
 
 @Entity(tableName = "service")
@@ -17,6 +19,16 @@ public class Service {
 
     public Service(@NotNull int code, @NotNull String name) {
         this.code = code;
+        this.name = name;
+    }
+
+    public Service(String code, String name) throws FormatError {
+        try {
+            this.code = Integer.parseInt(code);
+            this.name = name;
+        }catch (Exception e){
+            throw new FormatError("Service");
+        }
         this.name = name;
     }
 

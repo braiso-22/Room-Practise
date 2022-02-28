@@ -3,7 +3,7 @@ package com.example.upkeep_app.model.vo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.example.upkeep_app.util.FormatError;
+import com.example.upkeep_app.util.exceptions.FormatError;
 
 import org.jetbrains.annotations.NotNull;
 
