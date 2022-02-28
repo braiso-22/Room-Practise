@@ -1,11 +1,13 @@
 package com.example.upkeep_app;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.model.vo.Store;
 import com.example.upkeep_app.model.vo.Task;
 import com.example.upkeep_app.model.vo.Upkeep;
+import com.example.upkeep_app.util.VOParser;
 import com.example.upkeep_app.view.FleetListAdapter;
 import com.example.upkeep_app.view.InsertActivity;
 import com.example.upkeep_app.viewmodel.ViewModel;
@@ -123,25 +126,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
         /*viewModel.getAllFleets().observe(this, fleets -> {
             // Update the cached copy of the words in the adapter.
             adapter.submitList(fleets);
         });*/
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_FLEET_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            String content;
+
+            // TODO hacer clase padre para hacer esto con herencia y polimorfismo
+
             try {
-                //Fleet fleet = data.
-                //viewModel.insert(fleet);
-                //Boat boat = new Fleet();
+                content = extras.get(InsertActivity.EXTRA_FLEET).toString();
+                Fleet fleet = VOParser.parseFleet(content);
+                viewModel.insert(fleet);
             } catch (Exception e) {
 
             }
+            try{
+                content = extras.get(InsertActivity.EXTRA_BOAT).toString();
+                Boat boat = VOParser.parseBoat(content);
+                viewModel.insert(boat);
+            }catch(Exception e){
+
+            }
+            try{
+                content = extras.get(InsertActivity.EXTRA_SERVICE).toString();
+                Service service = VOParser.parseService(content);
+                viewModel.insert(service);
+            }catch(Exception e){
+
+            }
+            try{
+                content = extras.get(InsertActivity.EXTRA_COMPONENT).toString();
+                Component component = VOParser.parseComponent(content);
+                viewModel.insert(component);
+            }catch(Exception e){
+
+            }
+            try{
+                content = extras.get(InsertActivity.EXTRA_UPKEEP).toString();
+                Upkeep upkeep = VOParser.parseUpkeep(content);
+                viewModel.insert(upkeep);
+            }catch(Exception e){
+
+            }
+            try{
+                content = extras.get(InsertActivity.EXTRA_TASK).toString();
+                Task task = VOParser.parseTask(content);
+                viewModel.insert(task);
+            }catch(Exception e){
+
+            }
+            try{
+                content = extras.get(InsertActivity.EXTRA_OPERATOR).toString();
+                Operator operator = VOParser.parseOperator(content);
+                viewModel.insert(operator);
+            }catch(Exception e){
+
+            }
+            try{
+                content = extras.get(InsertActivity.EXTRA_STORE).toString();
+                Store store = VOParser.parseStore(content);
+                viewModel.insert(store);
+            }catch(Exception e){
+
+            }
+
         } else {
             Toast.makeText(
                     getApplicationContext(),
@@ -149,4 +206,5 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
+
 }
