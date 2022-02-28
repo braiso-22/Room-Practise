@@ -23,9 +23,9 @@ public class Task {
         this.description = description;
     }
 
-    public Task(String lenght, String description) throws FormatError{
+    public Task(String length, String description) throws FormatError{
         try{
-            this.lenght = Integer.parseInt(lenght);
+            this.lenght = Integer.parseInt(length);
             this.description = description;
         }catch (Exception e){
             throw new FormatError("Task");
