@@ -3,6 +3,8 @@ package com.example.upkeep_app.model.vo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.upkeep_app.util.exceptions.FormatError;
+
 import org.jetbrains.annotations.NotNull;
 
 @Entity(tableName = "store")
@@ -36,6 +38,21 @@ public class Store {
         this.observations = observations;
         this.numStock = numStock;
         this.minStock = minStock;
+    }
+
+    public Store(String code, String name, String brand, String model, String serialNumber, String observations, String numStock, String minStock) throws FormatError{
+        try{
+            this.code = Integer.parseInt(code);
+            this.numStock = Integer.parseInt(numStock);
+            this.minStock = Integer.parseInt(minStock);
+        }catch (Exception e){
+            throw new FormatError("Store");
+        }
+        this.name = name;
+        this.brand = brand;
+        this.model = model;
+        this.serialNumber = serialNumber;
+        this.observations = observations;
     }
 
     public void setId(int id) {
