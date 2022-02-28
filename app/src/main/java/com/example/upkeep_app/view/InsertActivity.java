@@ -68,8 +68,8 @@ public class InsertActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(et.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                String word = et.getText().toString();
-                replyIntent.putExtra(extra, word);
+                String content = et.getText().toString();
+                replyIntent.putExtra(extra, content);
                 setResult(RESULT_OK, replyIntent);
             }
             finish();
