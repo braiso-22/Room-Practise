@@ -1,4 +1,4 @@
-package com.example.upkeep_app.util;
+package com.example.upkeep_app.util.exceptions;
 
 import androidx.annotation.Nullable;
 
