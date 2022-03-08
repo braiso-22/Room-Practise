@@ -1,5 +1,7 @@
 package com.example.upkeep_app;
 
+import static com.example.upkeep_app.util.Extras.*;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewModel viewModel;
     private TextView tVFleets, tVBoats, tVServices, tVComponents, tVUpkeeps, tVTasks, tVOperators, tVStores;
     FloatingActionButton fab;
-    public static final int NEW_FLEET_ACTIVITY_REQUEST_CODE = 1;
+    public static final int INSERT_ACTIVITY_REQUEST_CODE = 1, DELETE_ACTIVITY_REQUEST_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,10 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, InsertActivity.class);
-            startActivityForResult(intent, NEW_FLEET_ACTIVITY_REQUEST_CODE);
+            startActivityForResult(intent, INSERT_ACTIVITY_REQUEST_CODE);
         });
+
+        // TODO add new button for delete activity
     }
 
     public void initViewComponents() {
@@ -135,44 +139,43 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Bundle extras = data.getExtras();
+        if (requestCode == INSERT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
 
-        if (requestCode == NEW_FLEET_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
             String content;
 
-            // TODO hacer clase padre para hacer esto con herencia y polimorfismo
             content = extras.get("content").toString();
             try {
                 switch (extras.get("type").toString()) {
-                    case InsertActivity.EXTRA_FLEET:
+                    case EXTRA_FLEET:
                         Fleet fleet = VOParser.parseFleet(content);
                         viewModel.insert(fleet);
                         break;
-                    case InsertActivity.EXTRA_BOAT:
+                    case EXTRA_BOAT:
                         Boat boat = VOParser.parseBoat(content);
                         viewModel.insert(boat);
                         break;
-                    case InsertActivity.EXTRA_SERVICE:
+                    case EXTRA_SERVICE:
                         Service service = VOParser.parseService(content);
                         viewModel.insert(service);
                         break;
-                    case InsertActivity.EXTRA_COMPONENT:
+                    case EXTRA_COMPONENT:
                         Component component = VOParser.parseComponent(content);
                         viewModel.insert(component);
                         break;
-                    case InsertActivity.EXTRA_UPKEEP:
+                    case EXTRA_UPKEEP:
                         Upkeep upkeep = VOParser.parseUpkeep(content);
                         viewModel.insert(upkeep);
                         break;
-                    case InsertActivity.EXTRA_TASK:
+                    case EXTRA_TASK:
                         Task task = VOParser.parseTask(content);
                         viewModel.insert(task);
                         break;
-                    case InsertActivity.EXTRA_OPERATOR:
+                    case EXTRA_OPERATOR:
                         Operator operator = VOParser.parseOperator(content);
                         viewModel.insert(operator);
                         break;
-                    case InsertActivity.EXTRA_STORE:
+                    case EXTRA_STORE:
                         Store store = VOParser.parseStore(content);
                         viewModel.insert(store);
                         break;
@@ -194,6 +197,45 @@ public class MainActivity extends AppCompatActivity {
                     getApplicationContext(),
                     R.string.empty_not_saved,
                     Toast.LENGTH_LONG).show();
+        }
+        // TODO deleteAll in viewModel
+        if (requestCode == DELETE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            try {
+                switch (extras.get("type").toString()) {
+                    case EXTRA_FLEET:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_BOAT:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_SERVICE:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_COMPONENT:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_UPKEEP:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_TASK:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_OPERATOR:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    case EXTRA_STORE:
+                        //viewModel.deleteAllFleets();
+                        break;
+                    default:
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Error imposible, seleccion de item no está en la base de datos",
+                                Toast.LENGTH_LONG).show();
+
+                }
+            } catch (Exception e) {
+
+            }
         }
     }
 
