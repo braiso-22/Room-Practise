@@ -141,64 +141,54 @@ public class MainActivity extends AppCompatActivity {
             String content;
 
             // TODO hacer clase padre para hacer esto con herencia y polimorfismo
-
+            content = extras.get("content").toString();
             try {
-                content = extras.get(InsertActivity.EXTRA_FLEET).toString();
-                Fleet fleet = VOParser.parseFleet(content);
-                viewModel.insert(fleet);
+                switch (extras.get("type").toString()) {
+                    case InsertActivity.EXTRA_FLEET:
+                        Fleet fleet = VOParser.parseFleet(content);
+                        viewModel.insert(fleet);
+                        break;
+                    case InsertActivity.EXTRA_BOAT:
+                        Boat boat = VOParser.parseBoat(content);
+                        viewModel.insert(boat);
+                        break;
+                    case InsertActivity.EXTRA_SERVICE:
+                        Service service = VOParser.parseService(content);
+                        viewModel.insert(service);
+                        break;
+                    case InsertActivity.EXTRA_COMPONENT:
+                        Component component = VOParser.parseComponent(content);
+                        viewModel.insert(component);
+                        break;
+                    case InsertActivity.EXTRA_UPKEEP:
+                        Upkeep upkeep = VOParser.parseUpkeep(content);
+                        viewModel.insert(upkeep);
+                        break;
+                    case InsertActivity.EXTRA_TASK:
+                        Task task = VOParser.parseTask(content);
+                        viewModel.insert(task);
+                        break;
+                    case InsertActivity.EXTRA_OPERATOR:
+                        Operator operator = VOParser.parseOperator(content);
+                        viewModel.insert(operator);
+                        break;
+                    case InsertActivity.EXTRA_STORE:
+                        Store store = VOParser.parseStore(content);
+                        viewModel.insert(store);
+                        break;
+                    default:
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Error imposible, seleccion de item no está en la base de datos",
+                                Toast.LENGTH_LONG).show();
+
+                }
             } catch (Exception e) {
-
+                Toast.makeText(
+                        getApplicationContext(),
+                        e.getMessage(),
+                        Toast.LENGTH_LONG).show();
             }
-            try{
-                content = extras.get(InsertActivity.EXTRA_BOAT).toString();
-                Boat boat = VOParser.parseBoat(content);
-                viewModel.insert(boat);
-            }catch(Exception e){
-
-            }
-            try{
-                content = extras.get(InsertActivity.EXTRA_SERVICE).toString();
-                Service service = VOParser.parseService(content);
-                viewModel.insert(service);
-            }catch(Exception e){
-
-            }
-            try{
-                content = extras.get(InsertActivity.EXTRA_COMPONENT).toString();
-                Component component = VOParser.parseComponent(content);
-                viewModel.insert(component);
-            }catch(Exception e){
-
-            }
-            try{
-                content = extras.get(InsertActivity.EXTRA_UPKEEP).toString();
-                Upkeep upkeep = VOParser.parseUpkeep(content);
-                viewModel.insert(upkeep);
-            }catch(Exception e){
-
-            }
-            try{
-                content = extras.get(InsertActivity.EXTRA_TASK).toString();
-                Task task = VOParser.parseTask(content);
-                viewModel.insert(task);
-            }catch(Exception e){
-
-            }
-            try{
-                content = extras.get(InsertActivity.EXTRA_OPERATOR).toString();
-                Operator operator = VOParser.parseOperator(content);
-                viewModel.insert(operator);
-            }catch(Exception e){
-
-            }
-            try{
-                content = extras.get(InsertActivity.EXTRA_STORE).toString();
-                Store store = VOParser.parseStore(content);
-                viewModel.insert(store);
-            }catch(Exception e){
-
-            }
-
         } else {
             Toast.makeText(
                     getApplicationContext(),

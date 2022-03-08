@@ -29,6 +29,8 @@ public class Boat {
     public Boat(String code, String name, String registration) throws FormatError {
         try {
             this.code = Integer.parseInt(code);
+            this.name = name;
+            this.registration = registration;
         } catch (Exception e) {
             throw new FormatError("Boat");
         }

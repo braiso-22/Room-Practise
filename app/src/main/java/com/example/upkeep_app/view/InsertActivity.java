@@ -69,7 +69,8 @@ public class InsertActivity extends AppCompatActivity {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
                 String content = et.getText().toString();
-                replyIntent.putExtra(extra, content);
+                replyIntent.putExtra("content", content);
+                replyIntent.putExtra("type",extra);
                 setResult(RESULT_OK, replyIntent);
             }
             finish();

@@ -79,7 +79,7 @@ public class VOParser {
     private static String[] longitudRequerida(String content, int longitud) throws InvalidLength {
         String[] list = content.split(";");
         if (list.length != longitud) {
-            throw new InvalidLength();
+            throw new InvalidLength(longitud);
         }
         return list;
     }
