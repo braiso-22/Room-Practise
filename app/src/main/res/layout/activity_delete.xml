@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.DeleteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Delete"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/bDeleteFleet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fleets"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <Button
+                android:id="@+id/bDeleteBoats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/boats"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteFleet" />
+
+            <Button
+                android:id="@+id/bDeleteServices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/services"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteBoats" />
+
+            <Button
+                android:id="@+id/bDeleteComponents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/components"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteServices" />
+
+            <Button
+                android:id="@+id/bDeleteUpkeeps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/upkeeps"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteComponents" />
+
+            <Button
+                android:id="@+id/bDeleteTasks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tasks"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteUpkeeps" />
+
+            <Button
+                android:id="@+id/bDeleteOperators"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/operators"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteTasks" />
+
+            <Button
+                android:id="@+id/bDeleteStores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stores"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bDeleteOperators" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
