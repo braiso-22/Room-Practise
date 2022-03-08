@@ -87,5 +87,7 @@ public class ViewModel extends AndroidViewModel {
     }
     public void insert(Store store){repository.insert(store);}
 
+    // TODO deleteAll Methods
+
 
 }
