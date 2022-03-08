@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Upkeepapp">
-        <activity android:name=".view.InsertActivity"></activity>
+        <activity
+            android:name=".view.DeleteActivity"
+            android:exported="false" />
+        <activity android:name=".view.InsertActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
