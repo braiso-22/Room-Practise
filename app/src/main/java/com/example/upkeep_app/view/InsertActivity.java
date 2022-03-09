@@ -22,7 +22,7 @@ public class InsertActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_fleet);
+        setContentView(R.layout.activity_insert);
         // EditTexts
         eTFleet = findViewById(R.id.eTFleets);
         eTBoat = findViewById(R.id.eTBoats);
