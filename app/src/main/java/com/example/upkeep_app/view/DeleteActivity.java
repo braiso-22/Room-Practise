@@ -48,11 +48,9 @@ public class DeleteActivity extends AppCompatActivity {
 
     private void setButtonListener(Button bt, String extra) {
         bt.setOnClickListener(view -> {
-
             Intent replyIntent = new Intent();
             replyIntent.putExtra("type",extra);
             setResult(RESULT_OK, replyIntent);
-
             finish();
         });
     }
