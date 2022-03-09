@@ -60,6 +60,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void deleteAllFleets() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            fleetDao.deleteAll();
+        });
+    }
+
     public LiveData<List<Boat>> getAllBoats() {
         return allBoats;
     }
@@ -67,6 +73,11 @@ public class UpkeepsRepository {
     public void insert(Boat boat) {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             boatDao.insert(boat);
+        });
+    }
+    public void deleteAllBoats() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            boatDao.deleteAll();
         });
     }
 
@@ -77,6 +88,11 @@ public class UpkeepsRepository {
     public void insert(Service service) {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             serviceDao.insert(service);
+        });
+    }
+    public void deleteAllServices() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            serviceDao.deleteAll();
         });
     }
 
@@ -90,6 +106,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void deleteAllComponents() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            componentDao.deleteAll();
+        });
+    }
+
     public LiveData<List<Upkeep>> getAllUpkeeps() {
         return allUpkeeps;
     }
@@ -100,6 +122,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void deleteAllUpkeeps() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            upkeepDao.deleteAll();
+        });
+    }
+
     public LiveData<List<Task>> getAllTasks() {
         return allTasks;
     }
@@ -107,6 +135,11 @@ public class UpkeepsRepository {
     public void insert(Task task) {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             taskDao.insert(task);
+        });
+    }
+    public void deleteAllTasks() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            taskDao.deleteAll();
         });
     }
 
@@ -120,6 +153,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void deleteAllOperators() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            operatorDao.deleteAll();
+        });
+    }
+
     public LiveData<List<Store>> getAllStores() {
         return allStores;
     }
@@ -127,6 +166,11 @@ public class UpkeepsRepository {
     public void insert(Store store) {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             storeDao.insert(store);
+        });
+    }
+    public void deleteAllStores() {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            storeDao.deleteAll();
         });
     }
 }

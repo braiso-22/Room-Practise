@@ -49,6 +49,10 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(fleet);
     }
 
+    public void deleteAllFleets() {
+        repository.deleteAllFleets();
+    }
+
     public LiveData<List<Boat>> getAllBoats() {
         return allBoats;
     }
@@ -57,37 +61,78 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(boat);
     }
 
-    public LiveData<List<Service>> getAllServices(){
+    public void deleteAllBoats(){
+        repository.deleteAllBoats();
+    }
+
+    public LiveData<List<Service>> getAllServices() {
         return allServices;
     }
-    public void insert(Service service){repository.insert(service);}
 
-    public LiveData<List<Component>> getAllComponents(){
+    public void insert(Service service) {
+        repository.insert(service);
+    }
+    public void deleteAllServices(){
+        repository.deleteAllServices();
+    }
+
+    public LiveData<List<Component>> getAllComponents() {
         return allComponents;
     }
-    public void insert(Component component){repository.insert(component);}
 
-    public LiveData<List<Upkeep>> getAllUpkeeps(){
+    public void insert(Component component) {
+        repository.insert(component);
+    }
+
+    public void deleteAllComponents(){
+        repository.deleteAllComponents();
+    }
+
+    public LiveData<List<Upkeep>> getAllUpkeeps() {
         return allUpkeeps;
     }
-    public void insert(Upkeep upkeep){repository.insert(upkeep);}
 
-    public LiveData<List<Task>> getAllTasks(){
+    public void insert(Upkeep upkeep) {
+        repository.insert(upkeep);
+    }
+
+    public void deleteAllUpkeeps(){
+        repository.deleteAllUpkeeps();
+    }
+
+    public LiveData<List<Task>> getAllTasks() {
         return allTasks;
     }
-    public void insert(Task task){repository.insert(task);}
 
-    public LiveData<List<Operator>> getAllOperators(){
+    public void insert(Task task) {
+        repository.insert(task);
+    }
+
+    public void deleteAllTasks(){
+        repository.deleteAllTasks();
+    }
+
+    public LiveData<List<Operator>> getAllOperators() {
         return allOperators;
     }
-    public void insert(Operator operator){repository.insert(operator);}
 
-    public LiveData<List<Store>> getAllStores(){
+    public void insert(Operator operator) {
+        repository.insert(operator);
+    }
+
+    public void deleteAllOperators(){
+        repository.deleteAllOperators();
+    }
+
+    public LiveData<List<Store>> getAllStores() {
         return allStores;
     }
-    public void insert(Store store){repository.insert(store);}
 
-    // TODO deleteAll Methods
+    public void insert(Store store) {
+        repository.insert(store);
+    }
 
-
+    public void deleteAllStores(){
+        repository.deleteAllStores();
+    }
 }
