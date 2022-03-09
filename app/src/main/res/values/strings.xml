@@ -3,7 +3,8 @@
     <string name="hint_word">Word...</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
-    <string name="add_word">a</string>
+    <string name="add">add</string>
+    <string name="delete">delete</string>
     <string name="fleets">Fleets</string>
     <string name="boats">Boats</string>
     <string name="insert">Insert</string>

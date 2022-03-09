@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Delete;
 
 import android.content.Intent;
 import android.os.Build;
@@ -23,6 +24,7 @@ import com.example.upkeep_app.model.vo.Store;
 import com.example.upkeep_app.model.vo.Task;
 import com.example.upkeep_app.model.vo.Upkeep;
 import com.example.upkeep_app.util.VOParser;
+import com.example.upkeep_app.view.DeleteActivity;
 import com.example.upkeep_app.view.FleetListAdapter;
 import com.example.upkeep_app.view.InsertActivity;
 import com.example.upkeep_app.viewmodel.ViewModel;
@@ -31,7 +33,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
     private ViewModel viewModel;
     private TextView tVFleets, tVBoats, tVServices, tVComponents, tVUpkeeps, tVTasks, tVOperators, tVStores;
-    FloatingActionButton fab;
+    FloatingActionButton fab, fab2;
     public static final int INSERT_ACTIVITY_REQUEST_CODE = 1, DELETE_ACTIVITY_REQUEST_CODE = 2;
 
     @Override
@@ -53,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // TODO add new button for delete activity
+        fab2.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, DeleteActivity.class);
+            startActivityForResult(intent, DELETE_ACTIVITY_REQUEST_CODE);
+        });
     }
 
     public void initViewComponents() {
@@ -66,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         tVStores = findViewById(R.id.storeTV);
 
         fab = findViewById(R.id.fab);
+        fab2 = findViewById(R.id.fab2);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final FleetListAdapter adapter = new FleetListAdapter(new FleetListAdapter.FleetDiff());
@@ -192,39 +199,35 @@ public class MainActivity extends AppCompatActivity {
                         e.getMessage(),
                         Toast.LENGTH_LONG).show();
             }
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.empty_not_saved,
-                    Toast.LENGTH_LONG).show();
         }
         // TODO deleteAll in viewModel
         if (requestCode == DELETE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             try {
+
                 switch (extras.get("type").toString()) {
                     case EXTRA_FLEET:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllFleets();
                         break;
                     case EXTRA_BOAT:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllBoats();
                         break;
                     case EXTRA_SERVICE:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllServices();
                         break;
                     case EXTRA_COMPONENT:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllComponents();
                         break;
                     case EXTRA_UPKEEP:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllUpkeeps();
                         break;
                     case EXTRA_TASK:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllTasks();
                         break;
                     case EXTRA_OPERATOR:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllOperators();
                         break;
                     case EXTRA_STORE:
-                        //viewModel.deleteAllFleets();
+                        viewModel.deleteAllStores();
                         break;
                     default:
                         Toast.makeText(
@@ -233,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
 
                 }
+
             } catch (Exception e) {
 
             }
