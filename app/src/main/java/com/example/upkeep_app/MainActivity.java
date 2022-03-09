@@ -200,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         }
-        // TODO deleteAll in viewModel
         if (requestCode == DELETE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             try {
 
@@ -234,9 +233,7 @@ public class MainActivity extends AppCompatActivity {
                                 getApplicationContext(),
                                 "Error imposible, seleccion de item no está en la base de datos",
                                 Toast.LENGTH_LONG).show();
-
                 }
-
             } catch (Exception e) {
 
             }
