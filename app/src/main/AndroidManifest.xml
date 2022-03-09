@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Upkeepapp">
         <activity
+            android:name=".view.UpdateActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.DeleteActivity"
             android:exported="false" />
         <activity android:name=".view.InsertActivity" />

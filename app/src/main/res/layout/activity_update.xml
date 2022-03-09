@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.UpdateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/eTFleets"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/fleets"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/bInsertFleet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTFleets" />
+
+            <EditText
+                android:id="@+id/eTBoats"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/boats"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertFleet" />
+
+            <Button
+                android:id="@+id/bInsertBoat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTBoats" />
+
+            <EditText
+                android:id="@+id/eTServices"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/services"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertBoat" />
+
+            <Button
+                android:id="@+id/bInsertService"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTServices" />
+
+            <EditText
+                android:id="@+id/eTComponents"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/components"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertService" />
+
+            <Button
+                android:id="@+id/bInsertComponent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTComponents" />
+
+
+            <EditText
+                android:id="@+id/eTUpkeeps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/upkeeps"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertComponent" />
+
+            <EditText
+                android:id="@+id/eTTasks"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/tasks"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertUpkeep" />
+
+            <Button
+                android:id="@+id/bInsertTask"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTTasks" />
+
+            <EditText
+                android:id="@+id/eTOperators"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/operators"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertTask" />
+
+            <Button
+                android:id="@+id/bInsertUpkeep"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTUpkeeps" />
+
+            <Button
+                android:id="@+id/bInsertOperator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTOperators" />
+
+            <EditText
+                android:id="@+id/eTStores"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/stores"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bInsertOperator" />
+
+            <Button
+                android:id="@+id/bInsertStore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/insert"
+                app:layout_constraintEnd_toEndOf="@+id/eTFleets"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/eTFleets"
+                app:layout_constraintTop_toBottomOf="@+id/eTStores" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</ScrollView>
