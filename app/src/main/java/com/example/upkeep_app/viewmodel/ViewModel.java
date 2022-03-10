@@ -53,7 +53,7 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteAllFleets();
     }
 
-    public void updateFleet(Fleet fleet) {
+    public void update(Fleet fleet) {
         repository.update(fleet);
     }
 
@@ -69,6 +69,10 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteAllBoats();
     }
 
+    public void update(Boat boat) {
+        repository.update(boat);
+    }
+
     public LiveData<List<Service>> getAllServices() {
         return allServices;
     }
@@ -79,6 +83,10 @@ public class ViewModel extends AndroidViewModel {
 
     public void deleteAllServices() {
         repository.deleteAllServices();
+    }
+
+    public void update(Service service) {
+        repository.update(service);
     }
 
     public LiveData<List<Component>> getAllComponents() {
@@ -93,6 +101,10 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteAllComponents();
     }
 
+    public void update(Component component) {
+        repository.update(component);
+    }
+
     public LiveData<List<Upkeep>> getAllUpkeeps() {
         return allUpkeeps;
     }
@@ -103,6 +115,10 @@ public class ViewModel extends AndroidViewModel {
 
     public void deleteAllUpkeeps() {
         repository.deleteAllUpkeeps();
+    }
+
+    public void update(Upkeep upkeep) {
+        repository.update(upkeep);
     }
 
     public LiveData<List<Task>> getAllTasks() {
@@ -116,6 +132,9 @@ public class ViewModel extends AndroidViewModel {
     public void deleteAllTasks() {
         repository.deleteAllTasks();
     }
+    public void update(Task task) {
+        repository.update(task);
+    }
 
     public LiveData<List<Operator>> getAllOperators() {
         return allOperators;
@@ -128,6 +147,9 @@ public class ViewModel extends AndroidViewModel {
     public void deleteAllOperators() {
         repository.deleteAllOperators();
     }
+    public void update(Operator operator) {
+        repository.update(operator);
+    }
 
     public LiveData<List<Store>> getAllStores() {
         return allStores;
@@ -139,5 +161,9 @@ public class ViewModel extends AndroidViewModel {
 
     public void deleteAllStores() {
         repository.deleteAllStores();
+    }
+
+    public void update(Store store) {
+        repository.update(store);
     }
 }
