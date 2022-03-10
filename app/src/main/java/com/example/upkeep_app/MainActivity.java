@@ -263,35 +263,35 @@ public class MainActivity extends AppCompatActivity {
                 switch (extras.get("type").toString()) {
                     case EXTRA_FLEET:
                         Fleet fleet = VOParser.parseFleetWithId(content);
-                        viewModel.updateFleet(fleet);
+                        viewModel.update(fleet);
                         break;
                     case EXTRA_BOAT:
-                        Boat boat = VOParser.parseBoat(content);
-                        viewModel.insert(boat);
+                        Boat boat = VOParser.parseBoatWithId(content);
+                        viewModel.update(boat);
                         break;
                     case EXTRA_SERVICE:
-                        Service service = VOParser.parseService(content);
-                        viewModel.insert(service);
+                        Service service = VOParser.parseServiceWithId(content);
+                        viewModel.update(service);
                         break;
                     case EXTRA_COMPONENT:
-                        Component component = VOParser.parseComponent(content);
-                        viewModel.insert(component);
+                        Component component = VOParser.parseComponentWithId(content);
+                        viewModel.update(component);
                         break;
                     case EXTRA_UPKEEP:
-                        Upkeep upkeep = VOParser.parseUpkeep(content);
-                        viewModel.insert(upkeep);
+                        Upkeep upkeep = VOParser.parseUpkeepWithId(content);
+                        viewModel.update(upkeep);
                         break;
                     case EXTRA_TASK:
-                        Task task = VOParser.parseTask(content);
-                        viewModel.insert(task);
+                        Task task = VOParser.parseTaskWithId(content);
+                        viewModel.update(task);
                         break;
                     case EXTRA_OPERATOR:
-                        Operator operator = VOParser.parseOperator(content);
-                        viewModel.insert(operator);
+                        Operator operator = VOParser.parseOperatorWithId(content);
+                        viewModel.update(operator);
                         break;
                     case EXTRA_STORE:
-                        Store store = VOParser.parseStore(content);
-                        viewModel.insert(store);
+                        Store store = VOParser.parseStoreWithId(content);
+                        viewModel.update(store);
                         break;
                     default:
                         Toast.makeText(
