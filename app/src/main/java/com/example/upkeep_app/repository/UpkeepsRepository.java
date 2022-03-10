@@ -88,6 +88,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void update(Boat boat) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            boatDao.update(boat);
+        });
+    }
+
     public LiveData<List<Service>> getAllServices() {
         return allServices;
     }
@@ -101,6 +107,12 @@ public class UpkeepsRepository {
     public void deleteAllServices() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             serviceDao.deleteAll();
+        });
+    }
+
+    public void update(Service service) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            serviceDao.update(service);
         });
     }
 
@@ -120,6 +132,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void update(Component component) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            componentDao.update(component);
+        });
+    }
+
     public LiveData<List<Upkeep>> getAllUpkeeps() {
         return allUpkeeps;
     }
@@ -133,6 +151,12 @@ public class UpkeepsRepository {
     public void deleteAllUpkeeps() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             upkeepDao.deleteAll();
+        });
+    }
+
+    public void update(Upkeep upkeep) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            upkeepDao.update(upkeep);
         });
     }
 
@@ -152,6 +176,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void update(Task task) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            taskDao.update(task);
+        });
+    }
+
     public LiveData<List<Operator>> getAllOperators() {
         return allOperators;
     }
@@ -168,6 +198,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void update(Operator operator) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            operatorDao.update(operator);
+        });
+    }
+
     public LiveData<List<Store>> getAllStores() {
         return allStores;
     }
@@ -181,6 +217,12 @@ public class UpkeepsRepository {
     public void deleteAllStores() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             storeDao.deleteAll();
+        });
+    }
+
+    public void update(Store store) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            storeDao.update(store);
         });
     }
 }
