@@ -22,6 +22,19 @@ public class Operator {
     @NotNull
     private String email;
 
+    public Operator(String id,String code, String identification, String name, String surnames, String email) throws FormatError {
+        try {
+            this.id = Integer.parseInt(id);
+            this.code = Integer.parseInt(code);
+            this.identification = identification;
+            this.name = name;
+            this.surnames = surnames;
+            this.email = email;
+        } catch (Exception e) {
+            throw new FormatError("Operator");
+        }
+    }
+
     public Operator(@NotNull int code, @NotNull String identification, @NotNull String name, @NotNull String surnames, @NotNull String email) {
         this.code = code;
         this.identification = identification;

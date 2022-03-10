@@ -3,6 +3,8 @@ package com.example.upkeep_app.model.vo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.upkeep_app.util.exceptions.FormatError;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.sql.Date;
@@ -16,6 +18,16 @@ public class Upkeep {
     private String date;
     @NotNull
     private String hour;
+
+    public Upkeep(@NotNull String id, @NotNull String date, @NotNull String hour) throws FormatError {
+        try {
+            this.id = Integer.parseInt(id);
+            this.date = date;
+            this.hour = hour;
+        } catch (Exception e) {
+            throw new FormatError("Upkeep");
+        }
+    }
 
     public Upkeep(@NotNull String date, @NotNull String hour) {
         this.date = date;

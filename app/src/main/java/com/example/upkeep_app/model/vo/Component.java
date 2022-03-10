@@ -21,6 +21,20 @@ public class Component {
     private String serialNumber;
     private String observations;
 
+    public Component(String id,String code, String name, String brand, String model, String serialNumber, String observations) throws FormatError{
+        try{
+            this.id = Integer.parseInt(id);
+            this.code = Integer.parseInt(code);
+            this.name = name;
+            this.brand = brand;
+            this.model = model;
+            this.serialNumber = serialNumber;
+            this.observations = observations;
+        }catch (Exception e){
+            throw new FormatError("Component");
+        }
+    }
+
     public Component(@NotNull int code, @NotNull String name, String brand, String model, String serialNumber, String observations) {
         this.code = code;
         this.name = name;

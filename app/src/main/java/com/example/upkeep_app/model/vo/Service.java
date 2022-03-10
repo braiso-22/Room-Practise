@@ -17,6 +17,16 @@ public class Service {
     @NotNull
     private String name;
 
+    public Service(@NotNull String id, @NotNull String code, @NotNull String name) throws FormatError {
+        try {
+            this.id = Integer.parseInt(id);
+            this.code = Integer.parseInt(code);
+            this.name = name;
+        } catch (Exception e) {
+            throw new FormatError("Service");
+        }
+    }
+
     public Service(@NotNull int code, @NotNull String name) {
         this.code = code;
         this.name = name;
@@ -26,10 +36,9 @@ public class Service {
         try {
             this.code = Integer.parseInt(code);
             this.name = name;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new FormatError("Service");
         }
-        this.name = name;
     }
 
     public void setId(int id) {

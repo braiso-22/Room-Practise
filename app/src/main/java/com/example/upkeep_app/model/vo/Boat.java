@@ -20,6 +20,17 @@ public class Boat {
     @NotNull
     private String registration;
 
+    public Boat(String id, String code, String name, String registration)throws FormatError{
+        try {
+            this.id = Integer.parseInt(id);
+            this.code = Integer.parseInt(code);
+            this.name = name;
+            this.registration = registration;
+        } catch (Exception e) {
+            throw new FormatError("Boat");
+        }
+    }
+
     public Boat(@NotNull int code, @NotNull String name, @NotNull String registration) {
         this.code = code;
         this.name = name;

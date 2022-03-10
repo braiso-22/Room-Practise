@@ -29,6 +29,23 @@ public class Store {
     @NotNull
     private int minStock;
 
+    public Store(String id, String code, String name, String brand, String model, String serialNumber, String observations, String numStock, String minStock) throws FormatError {
+        try {
+            this.id = Integer.parseInt(id);
+            this.code = Integer.parseInt(code);
+            this.numStock = Integer.parseInt(numStock);
+            this.minStock = Integer.parseInt(minStock);
+            this.name = name;
+            this.brand = brand;
+            this.model = model;
+            this.serialNumber = serialNumber;
+            this.observations = observations;
+        } catch (Exception e) {
+            throw new FormatError("Store");
+        }
+
+    }
+
     public Store(@NotNull int code, @NotNull String name, @NotNull String brand, @NotNull String model, @NotNull String serialNumber, @NotNull String observations, @NotNull int numStock, @NotNull int minStock) {
         this.code = code;
         this.name = name;
@@ -40,12 +57,12 @@ public class Store {
         this.minStock = minStock;
     }
 
-    public Store(String code, String name, String brand, String model, String serialNumber, String observations, String numStock, String minStock) throws FormatError{
-        try{
+    public Store(String code, String name, String brand, String model, String serialNumber, String observations, String numStock, String minStock) throws FormatError {
+        try {
             this.code = Integer.parseInt(code);
             this.numStock = Integer.parseInt(numStock);
             this.minStock = Integer.parseInt(minStock);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new FormatError("Store");
         }
         this.name = name;

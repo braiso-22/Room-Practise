@@ -18,6 +18,16 @@ public class Task {
     @NotNull
     private String description;
 
+    public Task(String id,String length, String description) throws FormatError{
+        try{
+            this.id = Integer.parseInt(id);
+            this.lenght = Integer.parseInt(length);
+            this.description = description;
+        }catch (Exception e){
+            throw new FormatError("Task");
+        }
+    }
+
     public Task(@NotNull int lenght, @NotNull String description) {
         this.lenght = lenght;
         this.description = description;
