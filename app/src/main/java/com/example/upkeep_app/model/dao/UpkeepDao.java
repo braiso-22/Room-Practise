@@ -6,7 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Upkeep;
 import com.example.upkeep_app.model.vo.relations.UpkeepWithTasks;
 
@@ -22,7 +24,6 @@ public interface UpkeepDao {
     @Query("SELECT * FROM upkeep")
     LiveData<List<Upkeep>> getAll();
 
-    @Transaction
-    @Query("SELECT * FROM upkeep")
-    List<UpkeepWithTasks> getUpkeepWithTasks();
+    @Update
+    void update(Upkeep upkeep);
 }

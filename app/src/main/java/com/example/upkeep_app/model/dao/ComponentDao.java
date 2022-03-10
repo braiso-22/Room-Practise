@@ -6,8 +6,10 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import com.example.upkeep_app.model.vo.Component;
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.relations.ComponentWithUpkeeps;
 
 import java.util.List;
@@ -22,4 +24,7 @@ public interface ComponentDao {
 
     @Query("SELECT * FROM component")
     LiveData<List<Component>> getAll();
+
+    @Update
+    void update(Component component);
 }

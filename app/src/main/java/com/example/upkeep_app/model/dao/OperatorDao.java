@@ -6,7 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Operator;
 import com.example.upkeep_app.model.vo.relations.OperatorWithTasks;
 
@@ -23,7 +25,6 @@ public interface OperatorDao {
     @Query("SELECT * FROM operator")
     LiveData<List<Operator>> getAll();
 
-    @Transaction
-    @Query("SELECT * FROM operator")
-    List<OperatorWithTasks> getOperatorWithTasks();
+    @Update
+    void update(Operator operator);
 }

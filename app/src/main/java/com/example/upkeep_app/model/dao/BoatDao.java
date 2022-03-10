@@ -6,8 +6,10 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import com.example.upkeep_app.model.vo.Boat;
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.relations.BoatWithServices;
 
 import java.util.List;
@@ -22,4 +24,7 @@ public interface BoatDao {
 
     @Query("SELECT * FROM boat")
     LiveData<List<Boat>> getAll();
+
+    @Update
+    void update(Boat boats);
 }

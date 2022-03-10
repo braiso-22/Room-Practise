@@ -6,7 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Task;
 import com.example.upkeep_app.model.vo.relations.TaskWithStores;
 
@@ -22,7 +24,6 @@ public interface TaskDao {
     @Query("SELECT * FROM task")
     LiveData<List<Task>> getAll();
 
-    @Transaction
-    @Query("SELECT * FROM task")
-    List<TaskWithStores> getTaskWithStores();
+    @Update
+    void update(Task task);
 }

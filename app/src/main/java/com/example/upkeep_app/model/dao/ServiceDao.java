@@ -6,7 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Service;
 import com.example.upkeep_app.model.vo.relations.ServiceWithComponents;
 
@@ -22,4 +24,7 @@ public interface ServiceDao {
 
     @Query("SELECT * FROM service")
     LiveData<List<Service>> getAll();
+
+    @Update
+    void update(Service service);
 }

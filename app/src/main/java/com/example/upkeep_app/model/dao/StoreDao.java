@@ -6,7 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
+import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.Store;
 
 import java.util.List;
@@ -20,4 +22,7 @@ public interface StoreDao {
 
     @Query("SELECT * FROM store")
     LiveData<List<Store>> getAll();
+
+    @Update
+    void update(Store store);
 }
