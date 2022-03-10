@@ -53,6 +53,10 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteAllFleets();
     }
 
+    public void updateFleet(Fleet fleet) {
+        repository.update(fleet);
+    }
+
     public LiveData<List<Boat>> getAllBoats() {
         return allBoats;
     }
@@ -61,7 +65,7 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(boat);
     }
 
-    public void deleteAllBoats(){
+    public void deleteAllBoats() {
         repository.deleteAllBoats();
     }
 
@@ -72,7 +76,8 @@ public class ViewModel extends AndroidViewModel {
     public void insert(Service service) {
         repository.insert(service);
     }
-    public void deleteAllServices(){
+
+    public void deleteAllServices() {
         repository.deleteAllServices();
     }
 
@@ -84,7 +89,7 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(component);
     }
 
-    public void deleteAllComponents(){
+    public void deleteAllComponents() {
         repository.deleteAllComponents();
     }
 
@@ -96,7 +101,7 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(upkeep);
     }
 
-    public void deleteAllUpkeeps(){
+    public void deleteAllUpkeeps() {
         repository.deleteAllUpkeeps();
     }
 
@@ -108,7 +113,7 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(task);
     }
 
-    public void deleteAllTasks(){
+    public void deleteAllTasks() {
         repository.deleteAllTasks();
     }
 
@@ -120,7 +125,7 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(operator);
     }
 
-    public void deleteAllOperators(){
+    public void deleteAllOperators() {
         repository.deleteAllOperators();
     }
 
@@ -132,7 +137,7 @@ public class ViewModel extends AndroidViewModel {
         repository.insert(store);
     }
 
-    public void deleteAllStores(){
+    public void deleteAllStores() {
         repository.deleteAllStores();
     }
 }

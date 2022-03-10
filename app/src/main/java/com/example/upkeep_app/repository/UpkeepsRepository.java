@@ -66,6 +66,12 @@ public class UpkeepsRepository {
         });
     }
 
+    public void update(Fleet fleet) {
+        UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
+            fleetDao.update(fleet);
+        });
+    }
+
     public LiveData<List<Boat>> getAllBoats() {
         return allBoats;
     }
@@ -75,6 +81,7 @@ public class UpkeepsRepository {
             boatDao.insert(boat);
         });
     }
+
     public void deleteAllBoats() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             boatDao.deleteAll();
@@ -90,6 +97,7 @@ public class UpkeepsRepository {
             serviceDao.insert(service);
         });
     }
+
     public void deleteAllServices() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             serviceDao.deleteAll();
@@ -137,6 +145,7 @@ public class UpkeepsRepository {
             taskDao.insert(task);
         });
     }
+
     public void deleteAllTasks() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             taskDao.deleteAll();
@@ -168,6 +177,7 @@ public class UpkeepsRepository {
             storeDao.insert(store);
         });
     }
+
     public void deleteAllStores() {
         UpkeepsRoomDatabase.databaseWriteExecutor.execute(() -> {
             storeDao.deleteAll();

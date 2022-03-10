@@ -27,6 +27,10 @@ public class VOParser {
     public static Fleet parseFleet(String content) {
         return new Fleet(content);
     }
+    public static Fleet parseFleetWithId(String content) throws InvalidLength, FormatError{
+        String[] list = longitudRequerida(content, 2);
+        return new Fleet(list[0],list[1]);
+    }
 
     public static Boat parseBoat(String content) throws InvalidLength, FormatError {
         String[] list = longitudRequerida(content, 3);

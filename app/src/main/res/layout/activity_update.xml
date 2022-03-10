@@ -29,10 +29,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/bInsertFleet"
+                android:id="@+id/bUpdateFleet"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
                 app:layout_constraintTop_toBottomOf="@+id/eTFleets" />
@@ -47,13 +47,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertFleet" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateFleet" />
 
             <Button
-                android:id="@+id/bInsertBoat"
+                android:id="@+id/bUpdateBoat"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
@@ -69,13 +69,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertBoat" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateBoat" />
 
             <Button
-                android:id="@+id/bInsertService"
+                android:id="@+id/bUpdateService"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
@@ -91,13 +91,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertService" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateService" />
 
             <Button
-                android:id="@+id/bInsertComponent"
+                android:id="@+id/bUpdateComponent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
@@ -114,7 +114,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertComponent" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateComponent" />
 
             <EditText
                 android:id="@+id/eTTasks"
@@ -126,13 +126,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertUpkeep" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateUpkeep" />
 
             <Button
-                android:id="@+id/bInsertTask"
+                android:id="@+id/bUpdateTask"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
@@ -148,23 +148,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertTask" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateTask" />
 
             <Button
-                android:id="@+id/bInsertUpkeep"
+                android:id="@+id/bUpdateUpkeep"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
                 app:layout_constraintTop_toBottomOf="@+id/eTUpkeeps" />
 
             <Button
-                android:id="@+id/bInsertOperator"
+                android:id="@+id/bUpdateOperator"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"
@@ -180,13 +180,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bInsertOperator" />
+                app:layout_constraintTop_toBottomOf="@+id/bUpdateOperator" />
 
             <Button
-                android:id="@+id/bInsertStore"
+                android:id="@+id/bUpdateStore"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/insert"
+                android:text="@string/update"
                 app:layout_constraintEnd_toEndOf="@+id/eTFleets"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/eTFleets"

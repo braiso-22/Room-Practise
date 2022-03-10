@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
+import androidx.room.Update;
 
 import com.example.upkeep_app.model.vo.Fleet;
 import com.example.upkeep_app.model.vo.relations.FleetWithBoats;
@@ -22,4 +23,7 @@ public interface FleetDao {
 
     @Query("SELECT * FROM fleet")
     LiveData<List<Fleet>> getAll();
+
+    @Update
+    void update(Fleet fleet);
 }

@@ -27,14 +27,15 @@ import com.example.upkeep_app.util.VOParser;
 import com.example.upkeep_app.view.DeleteActivity;
 import com.example.upkeep_app.view.FleetListAdapter;
 import com.example.upkeep_app.view.InsertActivity;
+import com.example.upkeep_app.view.UpdateActivity;
 import com.example.upkeep_app.viewmodel.ViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
     private ViewModel viewModel;
     private TextView tVFleets, tVBoats, tVServices, tVComponents, tVUpkeeps, tVTasks, tVOperators, tVStores;
-    FloatingActionButton fab, fab2;
-    public static final int INSERT_ACTIVITY_REQUEST_CODE = 1, DELETE_ACTIVITY_REQUEST_CODE = 2;
+    FloatingActionButton fab, fab2, fab3;
+    public static final int INSERT_ACTIVITY_REQUEST_CODE = 1, DELETE_ACTIVITY_REQUEST_CODE = 2, UPDATE_ACTIVITY_REQUEST_CODE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +55,17 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, INSERT_ACTIVITY_REQUEST_CODE);
         });
 
-        // TODO add new button for delete activity
+
         fab2.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
+            startActivityForResult(intent, UPDATE_ACTIVITY_REQUEST_CODE);
+        });
+
+        fab3.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, DeleteActivity.class);
             startActivityForResult(intent, DELETE_ACTIVITY_REQUEST_CODE);
         });
+
     }
 
     public void initViewComponents() {
@@ -73,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
         fab2 = findViewById(R.id.fab2);
+        fab3 = findViewById(R.id.fab3);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final FleetListAdapter adapter = new FleetListAdapter(new FleetListAdapter.FleetDiff());
@@ -146,8 +154,16 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK) {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "no se seleccionó nada",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
         Bundle extras = data.getExtras();
-        if (requestCode == INSERT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+
+        if (requestCode == INSERT_ACTIVITY_REQUEST_CODE) {
 
             String content;
 
@@ -200,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         }
-        if (requestCode == DELETE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+        if (requestCode == DELETE_ACTIVITY_REQUEST_CODE) {
             try {
 
                 switch (extras.get("type").toString()) {
@@ -238,6 +254,61 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
+        if (requestCode == UPDATE_ACTIVITY_REQUEST_CODE) {
+
+            String content;
+
+            content = extras.get("content").toString();
+            try {
+                switch (extras.get("type").toString()) {
+                    case EXTRA_FLEET:
+                        Fleet fleet = VOParser.parseFleetWithId(content);
+                        viewModel.updateFleet(fleet);
+                        break;
+                    case EXTRA_BOAT:
+                        Boat boat = VOParser.parseBoat(content);
+                        viewModel.insert(boat);
+                        break;
+                    case EXTRA_SERVICE:
+                        Service service = VOParser.parseService(content);
+                        viewModel.insert(service);
+                        break;
+                    case EXTRA_COMPONENT:
+                        Component component = VOParser.parseComponent(content);
+                        viewModel.insert(component);
+                        break;
+                    case EXTRA_UPKEEP:
+                        Upkeep upkeep = VOParser.parseUpkeep(content);
+                        viewModel.insert(upkeep);
+                        break;
+                    case EXTRA_TASK:
+                        Task task = VOParser.parseTask(content);
+                        viewModel.insert(task);
+                        break;
+                    case EXTRA_OPERATOR:
+                        Operator operator = VOParser.parseOperator(content);
+                        viewModel.insert(operator);
+                        break;
+                    case EXTRA_STORE:
+                        Store store = VOParser.parseStore(content);
+                        viewModel.insert(store);
+                        break;
+                    default:
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Error imposible, seleccion de item no está en la base de datos",
+                                Toast.LENGTH_LONG).show();
+
+                }
+            } catch (Exception e) {
+                Toast.makeText(
+                        getApplicationContext(),
+                        e.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+
+
     }
 
 }
